@@ -1,9 +1,7 @@
 /*
 Selection Sort
 Bubble Sort
-Recursive Bubble Sort
 Insertion Sort
-Recursive Insertion Sort
 Merge Sort
 Iterative Merge Sort
 Quick Sort
@@ -21,8 +19,25 @@ Cocktail Sort
 Strand Sort
 */
 
-function selectionSort() {
+function swap(array, xindex, yindex) {
+    let temp = array[xindex];
+    array[xindex] = array[yindex];
+    array[yindex] = temp;
+}
 
+//-------------------------------------//
+function selectionSort(array) {
+    let min_index;
+    for(let i = 0; i < array.length - 1; i++) {
+        min_index = i;
+        for(let j = i + 1; j < array.length; j++) {
+            if(array[j] < array[min_index]) {
+                min_index = j;
+            }
+        }
+        swap(array, min_index, i);
+    }
+    return array;
 }
 
 function bubbleSort() {
@@ -42,11 +57,16 @@ function quickSort() {
 }
 
 function heapSort() {
-    
+
 }
 
 function bucketSort() {
 
 }
 
-module.export = sort
+export function hi() {
+    console.log('hi')
+}
+var str = 'hi'
+
+module.exports = sort
