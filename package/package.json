@@ -1,0 +1,15 @@
+{
+  "name": "sorting-algorithm",
+  "version": "1.0.0",
+  "description": "Choose a sort method",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sorting",
+    "algorithm"
+  ],
+  "author": "jjpp43",
+  "license": "ISC"
+}
