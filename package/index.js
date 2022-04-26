@@ -4,7 +4,7 @@ Bubble Sort
 Insertion Sort
 Merge Sort
 Iterative Merge Sort
-Quick Sort
+Quick Sort - https://www.youtube.com/watch?v=Hoixgm4-P4M
 Iterative Quick Sort
 Heap Sort
 Counting Sort
@@ -66,6 +66,8 @@ function insertionSort(array) {
     }
     return array
 }
+
+//------------Merge Sort------------//
 
 module.exports = {
     swap: function(array, xindex, yindex) {
