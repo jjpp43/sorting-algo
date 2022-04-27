@@ -60,7 +60,7 @@ function bubbleSort(array) {
     return array
 }
 
-//------------Insertion Sort------------//
+//------------Insertion Sort------------O//
 function insertionSort(array) {
     for(let i = 1; i < array.length; i++) {
         let current = array[i]
