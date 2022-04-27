@@ -75,6 +75,12 @@ function insertionSort(array) {
     return array
 }
 
+//------------Bucket Sort------------//
+//https://www.youtube.com/watch?v=VuXbEb5ywrU
+function bucketSort(array) {
+    
+}
+
 //------------Merge Sort------------//
 
 module.exports = {
