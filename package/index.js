@@ -50,6 +50,7 @@ function selectionSort(array) {
 
 //------------Bubble Sort------------O//
 function bubbleSort(array) {
+    let t0 = performance.now();                      //-----Start of performance
     for(let i = 0; i < array.length; i++) {
         for(let j = 0; j < array.length - i - 1; j++) {
             if(array[j] > array[j+1]) {
@@ -57,23 +58,37 @@ function bubbleSort(array) {
             }
         }
     }
+    let t1 = performance.now()                       //-----End of performance
     return array
 }
 
 //------------Insertion Sort------------O//
 function insertionSort(array) {
+    let t0 = performance.now();                      //-----Start of performance
+
     for(let i = 1; i < array.length; i++) {
         let current = array[i]
         let j = i - 1
-        //Through a while loop, we go through the sorted array and shift elements to the right, opening up space for current element to be inserted
+
         while(j >= 0 && array[j] > current) {
             array[j+1] = array[j]
             j = j-1
         }
         array[j+1] = current
     }
+ 
+    let t1 = performance.now()                       //-----End of performance
+    console.log(`Took approximately ${t1 - t0} to sort`) 
     return array
+    
 }
+/*
+How to measure performance time
+    const t0 = performance.now();
+    bubbleSort(nums);
+    const t1 = performance.now()
+    console.log(`It took ${t1 -t0} milliseconds`)
+*/
 
 //------------Bucket Sort------------//
 //https://www.youtube.com/watch?v=VuXbEb5ywrU
