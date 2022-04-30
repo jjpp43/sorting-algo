@@ -1,6 +1,6 @@
 {
   "name": "sorting-algorithm",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Choose a sort method",
   "main": "index.js",
   "scripts": {
