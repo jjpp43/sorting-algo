@@ -1,14 +1,16 @@
 {
   "name": "sorting-algorithm",
-  "version": "1.0.2",
-  "description": "Choose a sort method",
+  "version": "1.0.3",
+  "description": "Choose a sorting method",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "sorting",
-    "algorithm"
+    "algorithm",
+    "sorting-algorithm",
+    "sorting algorithm"
   ],
   "author": "jjpp43",
   "license": "ISC"
