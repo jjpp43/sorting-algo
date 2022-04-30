@@ -84,5 +84,7 @@ function bucketSort(array) {
 //------------Merge Sort------------//
 
 module.exports = {
-
+    selectionSort: selectionSort,
+    bubbleSort: bubbleSort,
+    insertionSort: insertionSort,
 }
