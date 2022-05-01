@@ -4,7 +4,7 @@ Bubble Sort    - o
 Insertion Sort - o
 Merge Sort
 Iterative Merge Sort
-Quick Sort - https://www.youtube.com/watch?v=Hoixgm4-P4M
+Quick Sort 
 Iterative Quick Sort
 Heap Sort
 Counting Sort
@@ -17,14 +17,6 @@ Pigeonhole Sort
 Cycle Sort
 Cocktail Sort
 Strand Sort
-*/
-
-/*
-How to measure performance time
-    const t0 = performance.now();
-    bubbleSort(nums);
-    const t1 = performance.now()
-    console.log(`It took ${t1 -t0} milliseconds`)
 */
 
 function swap(array, xindex, yindex) {
@@ -95,7 +87,6 @@ function insertionSort(array) {
 }
 
 //------------Bucket Sort------------O//
-//https://www.youtube.com/watch?v=VuXbEb5ywrU
 function bucketSort(array) {
     let t0 = performance.now()                       //-----Start of performance
     if (array.length === 0) return array
