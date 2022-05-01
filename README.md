@@ -1,4 +1,4 @@
-## sorting-algorithm
+# sorting-algorithm
 This repo is for a npm package (sorting-algorithm)
 
 ### local-test-folder : A test folder to test the package on a local environment
