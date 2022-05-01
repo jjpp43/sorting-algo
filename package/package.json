@@ -1,12 +1,13 @@
 {
   "name": "sorting-algorithm",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Choose a sorting method",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "sort",
     "sorting",
     "algorithm",
     "sorting-algorithm",
