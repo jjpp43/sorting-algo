@@ -29,6 +29,7 @@ output: Insertion sort took .0254 milliseconds to sort
         Selection sort took .0296 milliseconds to sort
         [1,2,3,4,5,6,7,8,9]
 ```
+Make sure to use camel-case when calling a sorting algorithm
 
 ## Additional features
 + Outputs the sorting time to the console. 
