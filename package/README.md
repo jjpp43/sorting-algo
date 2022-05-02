@@ -7,6 +7,7 @@ Supported sorting algorithms :
 - Bubble sort
 - Insertion sort
 - Bucket sort
+- Cocktail sort
 - More to be added...
 
 ## Installation
