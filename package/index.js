@@ -100,25 +100,24 @@ function cocktailSort(array) {
     let swapped = true
         let start = 0
         let end = array.length
-  
         while (swapped) {
   
             swapped = false
   
             for (let i = start; i < end - 1; ++i) {
                 if (array[i] > array[i + 1]) {
-                    swap(array,i, i+1 )
+                    swap(array,i,i+1 )
                     swapped = true
                 }
             }
 
-            if (swapped == false) break
+            if (!swapped) break
             swapped = false
             end = end - 1
 
             for (let i = end - 1; i >= start; i--) {
                 if (array[i] > array[i + 1]) {
-                    swap(array,i, i+1 )
+                    swap(array,i,i+1 )
                     swapped = true
                 }
             }
