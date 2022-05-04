@@ -176,4 +176,5 @@ module.exports = {
     insertionSort,
     bucketSort,
     cocktailSort,
+    heapSort,
 }

@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sorting-algorithm": "^1.0.10"
+    "sorting-algorithm": "^1.0.11"
   }
 }

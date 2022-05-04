@@ -7,5 +7,5 @@ console.log(sort.bubbleSort(arr))
 console.log(sort.insertionSort(arr))
 console.log(sort.bucketSort(arr))
 console.log(sort.cocktailSort(arr))
-//console.log(sort.heapSort(arr))
+console.log(sort.heapSort(arr))
 
