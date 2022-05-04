@@ -1,7 +1,7 @@
 {
   "name": "sorting-algorithm",
-  "version": "1.0.10",
-  "description": "Choose a sorting method",
+  "version": "1.0.11",
+  "description": "Choose any sorting algorithm you want",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
