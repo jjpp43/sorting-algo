@@ -8,6 +8,7 @@ Supported sorting algorithms :
 - Insertion sort
 - Bucket sort
 - Cocktail sort
+- Heap sort
 - More to be added...
 
 ## Installation
@@ -31,5 +32,5 @@ output: Insertion sort took .0254 milliseconds to sort
 ```
 Make sure to use camel-case when calling a sorting algorithm
 
-## Additional features
+## Features
 + Outputs the sorting time to the console. 

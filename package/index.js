@@ -4,6 +4,26 @@ function swap(array, xindex, yindex) {
     array[yindex] = temp
 }
 
+function heapify(array, length, i) {
+    let largest = i
+    let left = i * 2 + 1
+    let right = left + 1
+
+    if(left < length && array[left] > array[largest]) {
+        largest = left
+    }
+
+    if(right < length && array[right] > array[largest]) {
+        largest = right
+    }
+
+    if(largest != i) {
+        [array[i], array[largest]] = [array[largest], array[i]]
+        heapify(array, length, largest)
+    }
+    return array
+}
+
 function selectionSort(array) {
     let t0 = performance.now()
 
@@ -125,6 +145,28 @@ function cocktailSort(array) {
         }
     let t1 = performance.now()                       //-----End of performance
     console.log(`Cocktail sort took ${(t1 - t0).toFixed(4)} milliseconds to sort`)
+    return array
+}
+
+//------------Heap Sort------------O//
+function heapSort(array) {
+    let t0 = performance.now()                       //-----Start of performance
+    let n = array.length
+    let i = Math.floor(n / 2 - 1)
+    let k = n - 1
+
+    while(i >= 0) {
+        heapify(array, n, i)
+        i = i - 1
+    }
+
+    while(k >= 0) {
+        [array[0], array[k]] = [array[k], array[0]]
+        heapify(array, k, 0)
+        k = k - 1
+    }
+    let t1 = performance.now()                       //-----End of performance
+    console.log(`Heap sort took ${(t1 - t0).toFixed(4)} milliseconds to sort`)
     return array
 }
 

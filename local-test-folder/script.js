@@ -5,4 +5,5 @@ let arr = [1,3,5,7,9,-2,-1,-11,-20,11,2,4,6,8,123,12,312,313,4564,43123,123,23,1
 let array = [1,9,2,8,3,7,4,7,5,6]
 console.log(sort.insertionSort(arr))
 console.log(sort.cocktailSort(arr))
+console.log(sort.heapSort(arr))
 

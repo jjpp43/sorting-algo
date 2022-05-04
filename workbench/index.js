@@ -15,7 +15,7 @@ TimSort
 Comb Sort
 Pigeonhole Sort
 Cycle Sort
-Cocktail Sort
+Cocktail Sort  - o
 Strand Sort
 */
 
@@ -23,6 +23,26 @@ function swap(array, xindex, yindex) {
     let temp = array[xindex]
     array[xindex] = array[yindex]
     array[yindex] = temp
+}
+
+function heapify(array, length, i) {
+    let largest = i
+    let left = i * 2 + 1
+    let right = left + 1
+
+    if(left < length && array[left] > array[largest]) {
+        largest = left
+    }
+
+    if(right < length && array[right] > array[largest]) {
+        largest = right
+    }
+
+    if(largest != i) {
+        [array[i], array[largest]] = [array[largest], array[i]]
+        heapify(array, length, largest)
+    }
+    return array
 }
 
 //------------Selection Sort------------O//
@@ -179,10 +199,37 @@ function cocktailSort(array) {
     return array;
 }
 
+//------------Heap Sort------------//
+/*
+https://m.blog.naver.com/ndb796/221228342808
+https://levelup.gitconnected.com/heapsort-for-javascript-newbies-598d25477d55
+*/
+function heapSort(array) {
+    let t0 = performance.now()                       //-----Start of performance
+    let n = array.length
+    let i = Math.floor(n / 2 - 1)
+    let k = n - 1
+
+    while(i >= 0) {
+        heapify(array, n, i)
+        i = i - 1
+    }
+
+    while(k >= 0) {
+        [array[0], array[k]] = [array[k], array[0]]
+        heapify(array, k, 0)
+        k = k - 1
+    }
+    let t1 = performance.now()                       //-----End of performance
+    console.log(`Heap sort took ${(t1 - t0).toFixed(4)} milliseconds to sort`)
+    return array
+}
+
 module.exports = {
     selectionSort,
     bubbleSort,
     insertionSort,
     bucketSort,
     cocktailSort,
+    heapSort
 }
