@@ -1,5 +1,6 @@
 # sorting-algorithm
 This repo is for a npm package (sorting-algorithm)
+https://www.npmjs.com/package/sorting-algorithm
 
 - local-test-folder : A test folder to test the package on a local environment
 - npm-test-folder : A test folder to test the package using npm 
