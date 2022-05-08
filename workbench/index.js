@@ -197,6 +197,20 @@ https://m.blog.naver.com/ndb796/221228342808
 https://levelup.gitconnected.com/heapsort-for-javascript-newbies-598d25477d55
 */
 
+
+/**
+ * 
+function heapSort(o) {
+    let t = performance.now(),
+        e = o.length,
+        r = Math.floor(e / 2 - 1),
+        n = e - 1;
+    for (; r >= 0; ) heapify(o, e, r), (r -= 1);
+    for (; n >= 0; ) ([o[0], o[n]] = [o[n], o[0]]), heapify(o, n, 0), (n -= 1);
+    let l = performance.now();
+    return console.log(`Heap sort took ${(l - t).toFixed(4)} milliseconds to sort`), o;
+}
+ */
 function heapSort(array) {
     let t0 = performance.now()                       //-----Start of performance
     let n = array.length
@@ -222,6 +236,69 @@ function heapSort(array) {
 }
 
 
+function cycleSort(arr) {
+    let t0 = performance.now()                       //-----Start of performance
+        let n = arr.length
+        // count number of memory writes
+        let writes = 0;
+   
+        // traverse array elements and put it to on
+        // the right place
+        for (let cycle_start = 0; cycle_start <= n - 2; cycle_start++) {
+         
+        // initialize item as starting point
+        let item = arr[cycle_start];
+   
+        // Find position where we put the item. We basically
+        // count all smaller elements on right side of item.
+        let pos = cycle_start;
+        for (let i = cycle_start + 1; i < n; i++)
+            if (arr[i] < item)
+                pos++;
+   
+        // If item is already in correct position
+        if (pos == cycle_start)
+            continue;
+   
+        // ignore all duplicate elements
+        while (item == arr[pos])
+            pos += 1;
+   
+        // put the item to it's right position
+        if (pos != cycle_start) {
+            let temp = item;
+            item = arr[pos];
+            arr[pos] = temp;
+            writes++;
+        }
+   
+            // Rotate rest of the cycle
+        while (pos != cycle_start) {
+            pos = cycle_start;
+   
+            // Find position where we put the element
+            for (let i = cycle_start + 1; i < n; i++)
+                if (arr[i] < item)
+                    pos += 1;
+   
+            // ignore all duplicate elements
+            while (item == arr[pos])
+                pos += 1;
+   
+            // put the item to it's right position
+            if (item != arr[pos]) {
+                let temp = item;
+                item = arr[pos];
+                arr[pos] = temp;
+                writes++;
+            }
+        }
+    }
+    let t1 = performance.now()                       //-----End of performance
+    console.log(`Cycle sort took ${(t1 - t0).toFixed(4)} milliseconds to sort`)
+    return arr
+}
+
 
 module.exports = {
     selectionSort,
@@ -230,4 +307,5 @@ module.exports = {
     bucketSort,
     cocktailSort,
     heapSort,
+    cycleSort,
 }

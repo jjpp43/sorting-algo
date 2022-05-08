@@ -9,6 +9,7 @@ Supported sorting algorithms :
 - Bucket sort
 - Cocktail sort
 - Heap sort
+- Cycle sort
 - More to be added...
 
 ## Installation

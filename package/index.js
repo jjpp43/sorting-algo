@@ -76,37 +76,46 @@ function cocktailSort(o) {
     return console.log(`Cocktail sort took ${(l - t).toFixed(4)} milliseconds to sort`), o;
 }
 function heapSort(o) {
-    let t = performance.now(),
-        e = o.length,
-        r = Math.floor(e / 2 - 1),
-        n = e - 1;
-    for (; r >= 0; ) heapify(o, e, r), (r -= 1);
-    for (; n >= 0; ) ([o[0], o[n]] = [o[n], o[0]]), heapify(o, n, 0), (n -= 1);
-    let l = performance.now();
-    return console.log(`Heap sort took ${(l - t).toFixed(4)} milliseconds to sort`), o;
-}
-function heapSort(array) {
-    let t0 = performance.now()                       //-----Start of performance
-    let n = array.length
-    heapify(array, n)
-
-    for(let i = n-1; i > 0; i--) {
-        swap(array, 0, i)
-        let j = 0
-        let index
+    let e = performance.now(),
+        t = o.length;
+    heapify(o, t);
+    for (let e = t - 1; e > 0; e--) {
+        swap(o, 0, e);
+        let t,
+            l = 0;
         do {
-            index = (2 * j + 1)
-            if(index < (i-1) && array[index] < array[index + 1])
-                index++
-            if(index < i && array[j] < array[index])
-                swap(array, j, index)
-            j=index
-                
-        } while(index < i)
+            (t = 2 * l + 1) < e - 1 && o[t] < o[t + 1] && t++, t < e && o[l] < o[t] && swap(o, l, t), (l = t);
+        } while (t < e);
     }
-    let t1 = performance.now()                       //-----End of performance
-    console.log(`Heap sort took ${(t1 - t0).toFixed(4)} milliseconds to sort`)
-    return array
+    let l = performance.now();
+    return console.log(`Heap sort took ${(l - e).toFixed(4)} milliseconds to sort`), o;
+}
+function cycleSort(o) {
+    let e = performance.now(),
+        t = o.length;
+    for (let e = 0; e <= t - 2; e++) {
+        let l = o[e],
+            r = e;
+        for (let f = e + 1; f < t; f++) o[f] < l && r++;
+        if (r != e) {
+            for (; l == o[r]; ) r += 1;
+            if (r != e) {
+                let e = l;
+                (l = o[r]), (o[r] = e), 0;
+            }
+            for (; r != e; ) {
+                r = e;
+                for (let f = e + 1; f < t; f++) o[f] < l && (r += 1);
+                for (; l == o[r]; ) r += 1;
+                if (l != o[r]) {
+                    let e = l;
+                    (l = o[r]), (o[r] = e), 0;
+                }
+            }
+        }
+    }
+    let l = performance.now();
+    return console.log(`Cycle sort took ${(l - e).toFixed(4)} milliseconds to sort`), o;
 }
 
-module.exports = { selectionSort: selectionSort, bubbleSort: bubbleSort, insertionSort: insertionSort, bucketSort: bucketSort, cocktailSort: cocktailSort, heapSort: heapSort };
+module.exports = { selectionSort: selectionSort, bubbleSort: bubbleSort, insertionSort: insertionSort, bucketSort: bucketSort, cocktailSort: cocktailSort, heapSort: heapSort, cycleSort: cycleSort, };
