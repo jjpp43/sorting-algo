@@ -25,24 +25,16 @@ function swap(array, xindex, yindex) {
     array[yindex] = temp
 }
 
-function heapify(array, length, i) {
-    let largest = i
-    let left = i * 2 + 1
-    let right = left + 1
-
-    if(left < length && array[left] > array[largest]) {
-        largest = left
+function heapify(array, length) {
+    for(let i = 1; i < length; i++) {
+        if(array[i] > array[(i - 1) / 2]) {
+            let j = i
+            while(array[j] > array[(j - 1) / 2]) {
+                swap(array, j, (j-1)/2)
+                j = (j - 1) / 2
+            }
+        }
     }
-
-    if(right < length && array[right] > array[largest]) {
-        largest = right
-    }
-
-    if(largest != i) {
-        [array[i], array[largest]] = [array[largest], array[i]]
-        heapify(array, length, largest)
-    }
-    return array
 }
 
 //------------Selection Sort------------O//
@@ -204,26 +196,32 @@ function cocktailSort(array) {
 https://m.blog.naver.com/ndb796/221228342808
 https://levelup.gitconnected.com/heapsort-for-javascript-newbies-598d25477d55
 */
+
 function heapSort(array) {
     let t0 = performance.now()                       //-----Start of performance
     let n = array.length
-    let i = Math.floor(n / 2 - 1)
-    let k = n - 1
+    heapify(array, n)
 
-    while(i >= 0) {
-        heapify(array, n, i)
-        i = i - 1
-    }
-
-    while(k >= 0) {
-        [array[0], array[k]] = [array[k], array[0]]
-        heapify(array, k, 0)
-        k = k - 1
+    for(let i = n-1; i > 0; i--) {
+        swap(array, 0, i)
+        let j = 0
+        let index
+        do {
+            index = (2 * j + 1)
+            if(index < (i-1) && array[index] < array[index + 1])
+                index++
+            if(index < i && array[j] < array[index])
+                swap(array, j, index)
+            j=index
+                
+        } while(index < i)
     }
     let t1 = performance.now()                       //-----End of performance
     console.log(`Heap sort took ${(t1 - t0).toFixed(4)} milliseconds to sort`)
     return array
 }
+
+
 
 module.exports = {
     selectionSort,
@@ -231,5 +229,5 @@ module.exports = {
     insertionSort,
     bucketSort,
     cocktailSort,
-    heapSort
+    heapSort,
 }
